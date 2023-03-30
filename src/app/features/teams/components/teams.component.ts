@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {TeamsService} from "../services/teams-service";
+import {TeamBasicInfo} from "../models/partial-team.type";
 
 @Component({
   selector: 'app-teams',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeamsComponent implements OnInit {
 
-  constructor() { }
+  teams: Array<TeamBasicInfo> = [];
+  selectedOption: string = '';
 
-  ngOnInit(): void {
+  constructor(private teamsService: TeamsService) {
+
   }
 
+  ngOnInit(): void {
+    this.getTeamList();
+  }
+
+  getTeamList(): void {
+    this.teamsService.getTeams()
+      .subscribe((teams: Array<TeamBasicInfo>) => {
+        console.log(teams);
+        this.teams = teams;
+      })
+  }
+
+  showDetails(): void {
+  console.log(this.selectedOption);
+  }
 }

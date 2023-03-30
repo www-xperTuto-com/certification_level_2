@@ -1,1 +1,21 @@
-<p>teams works!</p>
+<div class="container-fluid">
+  <div class="team-selector">
+    <mat-form-field appearance="fill">
+      <mat-select id="teamSelect" [(ngModel)]="selectedOption">
+        <mat-option *ngFor="let team of teams" [value]="team?.id">
+          {{team?.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-button color="primary" id="trackBtn" (click)="showDetails()">Track team</button>
+  </div>
+</div>
+
+
+
+
+
+
+
+

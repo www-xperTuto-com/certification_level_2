@@ -1,20 +1,30 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TeamsComponent } from './features/teams/components/teams.component';
-import { TeamDetailComponent } from './features/teams/components/team-detail/team-detail.component';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import {MatButtonModule} from "@angular/material/button";
+import {MatSelectModule} from "@angular/material/select";
+import {MatCardModule} from "@angular/material/card";
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    TeamsComponent,
-    TeamDetailComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    BrowserAnimationsModule,
+    AppRoutingModule,
+
+
+    MatAutocompleteModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatCardModule,
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
