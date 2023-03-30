@@ -1,0 +1,49 @@
+.card {
+  position: relative;
+  width: 600px;
+  background-color: lightgray;
+}
+
+.close-icon {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.card-content {
+  border-top: 1px solid white;
+  padding-top: 20px;
+}
+
+.results div {
+  padding: 10px;
+  margin-right: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 50%;
+}
+
+img {
+  width: 150px;
+  height: 150px
+}
+
+.scores {
+  font-size: medium;
+  &-highlighted {
+    font-weight: bold;
+  }
+}
+.see-more-btn {
+  color: white;
+  background-color: green;
+}
+
+.label {
+  &-win {
+    background-color: green;
+  }
+  &-lost {
+    background-color: red;
+  }
+}

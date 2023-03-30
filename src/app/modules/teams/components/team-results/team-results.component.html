@@ -1,0 +1,35 @@
+<div class="result-content">
+  <mat-card class="card" *ngIf="!!team?.id else showSpinner">
+
+    <app-team-card-header [team]="team"></app-team-card-header>
+
+    <mat-card-content>
+      <div class="row card-content">
+        <div class="col">
+          <h6>Results of past 12 days</h6>
+          <div class="results d-flex flex-column">
+            <ng-container *ngFor="let result of team?.results">
+              <div>
+                <p>
+                  <span class="scores-highlighted">{{result?.home_team?.abbreviation}}</span>
+                  {{result.home_team_score}} - {{result.visitor_team_score}}
+                  <span class="scores-highlighted">{{result?.visitor_team?.abbreviation}}</span>
+                </p>
+              </div>
+            </ng-container>
+          </div>
+          <div class="detail-button">
+            <button mat-button mat-raised-button class="see-more-btn"
+                    (click)="navigateToTeamsPage()"
+                    id="back{{team.abbreviation}}"><< Back to all team stats
+            </button>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<ng-template #showSpinner>
+  <mat-progress-spinner color="primary" mode="indeterminate" diameter="50"></mat-progress-spinner>
+</ng-template>

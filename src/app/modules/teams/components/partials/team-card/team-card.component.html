@@ -1,0 +1,40 @@
+<mat-card class="card">
+  <button mat-icon-button id="remove{{team.abbreviation}}" class="close-icon" (click)="unTrackTeam()">X</button>
+
+  <app-team-card-header [team]="team"></app-team-card-header>
+
+  <mat-card-content>
+    <div class="row">
+      <div class="col-8">
+        <h6>Results of past 12 days</h6>
+        <div class="results d-flex flex-row flex-wrap">
+          <ng-container *ngFor="let result of team?.results">
+            <div [class]="isWinning(result) ? 'label-win' : 'label-lost'">
+              {{isWinning(result) ? 'W' : 'L'}}
+            </div>
+          </ng-container>
+        </div>
+
+        <div class="scores">
+          <p>
+            Avg pts scored <span class="scores-highlighted">{{teamScores.avgScoredPts}}</span>
+          </p>
+          <p>
+            Avg pts conceded <span class="scores-highlighted">{{teamScores.avgConcedePts}}</span>
+          </p>
+        </div>
+
+        <div class="detail-button">
+          <button mat-button mat-raised-button class="see-more-btn"
+                  (click)="navigateToResultsPage()"
+                  id="results{{team.abbreviation}}">See game results >>
+          </button>
+        </div>
+      </div>
+      <div class="col-4">
+        <img src="https://interstate21.com/nba-logos/{{team.abbreviation}}.png">
+      </div>
+    </div>
+
+  </mat-card-content>
+</mat-card>

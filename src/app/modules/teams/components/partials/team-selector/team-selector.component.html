@@ -1,0 +1,11 @@
+<div class="team-selector">
+  <mat-form-field appearance="fill">
+    <mat-select id="teamSelect" [(ngModel)]="selectedOption">
+      <mat-option [disabled]="isTrackedTeam(team)"  *ngFor="let team of teams" [value]="team">
+        {{team?.full_name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-button mat-raised-button class="mat-primary" id="trackBtn" (click)="trackTeam()">Track team</button>
+</div>

@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <div class="team-selector">
+    <app-team-selector (selectedTeamEmitter)=trackTeam($event)></app-team-selector>
+  </div>
+
+  <div class="team-cards d-flex flex-wrap m-5">
+    <div class="card m-3" *ngFor="let team of selectedTeams">
+      <app-team-card [team]="team"></app-team-card>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
